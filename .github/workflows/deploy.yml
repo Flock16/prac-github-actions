@@ -6,7 +6,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: lint
-          run: npm lint
+          run: npm run lint
         - name: Simulate
           run: echo "Linting"
 
@@ -14,7 +14,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: test
-          run:  npm test
+          run:  npm run test
         - name: Simulate
           run: echo "Testing"
 
@@ -22,6 +22,6 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Deploy
-          run: npm build
+          run: npm run build
         - name: Simulate
           run: echo "Building"
