@@ -5,12 +5,17 @@ jobs:
     lint:
       runs-on: ubuntu-latest
       steps:
+        - name: Get code
+          uses: actions/checkout@v3
+        - name: Install dependencies
+          run: npm ci
         - name: lint
           run: npm run lint
         - name: Simulate
           run: echo "Linting"
 
     test:
+      needs: lint
       runs-on: ubuntu-latest
       steps:
         - name: test
@@ -19,6 +24,7 @@ jobs:
           run: echo "Testing"
 
     build:
+      needs: test
       runs-on: ubuntu-latest
       steps:
         - name: Deploy
