@@ -9,25 +9,11 @@ jobs:
           uses: actions/checkout@v3
         - name: Install dependencies
           run: npm ci
-        - name: lint
+        - name: Lint
           run: npm run lint
-        - name: Simulate
-          run: echo "Linting"
-
-    test:
-      needs: lint
-      runs-on: ubuntu-latest
-      steps:
-        - name: test
+        - name: Test Code
           run:  npm run test
-        - name: Simulate
-          run: echo "Testing"
-
-    build:
-      needs: test
-      runs-on: ubuntu-latest
-      steps:
-        - name: Deploy
+        - name: Build Code
           run: npm run build
-        - name: Simulate
-          run: echo "Building"
+        - name: Deploy Code
+          run: echo "Deploying..."
